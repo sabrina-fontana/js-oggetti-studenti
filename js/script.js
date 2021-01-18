@@ -4,7 +4,7 @@ var studente1 = {
   'surname': 'Fontana',
   'age': 23
 }
-console.log('**proprietà dello studente**')
+console.log('*****proprietà dello studente*****')
 for (var key in studente1) {
   console.log(studente1[key]);
 }
@@ -28,7 +28,7 @@ var studente4 = {
 
 var arrayStudenti = [studente1, studente2, studente3, studente4];
 
-console.log('**nome e cognome di ogni studente dell\'array**');
+console.log('*****nome e cognome di ogni studente dell\'array*****');
 for (var i = 0; i < arrayStudenti.length; i++) {
   var singoloStudente = arrayStudenti[i];
   console.log(singoloStudente.name);
@@ -40,11 +40,16 @@ var nuovoStudente = {};
 
 nuovoStudente.name = prompt('Inserisci nome');
 nuovoStudente.surname = prompt('Inserisci cognome');
-nuovoStudente.age = parseInt(prompt('Inserisci età'));
-
+var userAge = parseInt(prompt('Inserisci età'));
+// controllo che l'utente inserisca un numero per l\'età
+while (isNaN(userAge)) {
+  alert('Inserisci un numero per l\'età');
+  userAge = parseInt(prompt('Inserisci età'));
+}
+nuovoStudente.age = userAge;
 arrayStudenti.push(nuovoStudente);
 
-console.log('**proprietà dello studente aggiunto dall\'utente**');
+console.log('*****proprietà dello studente aggiunto dall\'utente*****');
 for (var key in nuovoStudente) {
   console.log(nuovoStudente[key]);
 }
